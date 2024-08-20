@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Define color variables */
+:root {
+  --color-background: #f2f2f2;
+  --color-black: #000000;
+  --color-light-gray: lightgray;
+  --color-green: rgb(91, 220, 128);
+  --color-green-bg: rgba(92, 255, 130, 0.5);
+  --color-green-dark: rgb(91, 169, 128);
+  --color-white: #ffffff;
+  --color-gray-bg: #edeef2;
+  --color-purple-bg: #dacff9;
+  --color-divider: #f2f2f2;
+  --color-cta-bg: #f2f2f2;
+  --color-footer-text: grey;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background-color: var(--color-background);
+  color: var(--color-black);
+}
+
+.tab > p:hover,
+p.active {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-weight: 500;
+  transition-duration: 500ms;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#NewUser,
+#OnlineSales,
+#DailySales {
+  & .overview {
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & > p {
+        color: var(--color-light-gray);
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      & > .percentage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        color: var(--color-green);
+        & svg {
+          background-color: var(--color-green-bg);
+          padding: 2px;
+          border-radius: 50%;
+          color: var(--color-green-dark);
+        }
+      }
+    }
+    & > p {
+      font-size: 2.8rem;
+      font-weight: 600;
+      margin: 0.4rem auto;
+    }
+  }
+}
+
+.card1 {
+  background-color: var(--color-white);
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  max-width: 24rem;
+  margin: 1rem auto;
+  .top_title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    svg {
+      border: 1px solid var(--color-light-gray);
+      padding: 2px;
+      border-radius: 2px;
+      background-color: var(--color-gray-bg);
+    }
+    & > p {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+  }
+  .tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    border-radius: 5rem;
+    margin: 20px 0 15px;
+    background-color: var(--color-gray-bg);
+    transition: background-color 0.3s;
+    & > p.tab_link {
+      flex-shrink: 1;
+      font-size: 15px;
+      font-weight: 400;
+      border-radius: 3rem;
+      padding: 2px 13px;
+      color: var(--color-light-gray);
+      transition: all;
+    }
+  }
+  .body {
+    & > .tab_content {
+      display: none;
+      opacity: 0;
+      transition: all;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    & .tab_content.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      transition-duration: 3s;
+    }
+    & #NewUser {
+      box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.1),
+        -1px 10px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 1rem;
+      padding: 1rem;
+      & > .user_info {
+        display: flex;
+        gap: 1rem;
+        padding-left: 1.5rem;
+        & > svg {
+          background-color: var(--color-purple-bg);
+          padding: 1rem;
+          border-radius: 50%;
+        }
+        & > .text {
+          display: inline-flex;
+          flex-direction: column;
+        }
+        & > .text p:nth-child(odd),
+        & > .text p:nth-child(odd) {
+          color: var(--color-light-gray);
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 500;
+        }
+        & > .text p:nth-child(even),
+        & > .text p:nth-child(even) {
+          font-weight: 700;
+          font-size: 18px;
+          margin-bottom: 0.5rem;
+        }
+      }
+      & > .divider {
+        width: 90%;
+        margin: 0 auto;
+        height: 1px;
+        background-color: var(--color-divider);
+        margin: 1rem auto;
+      }
+      & > .overview {
+        & > .users {
+          transition: all;
+          & > .profiles {
+            display: flex;
+            align-items: center;
+            padding-left: 1.5rem;
+            & svg {
+              margin-left: -16px;
+            }
+          }
+          & > .CTA {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background-color: var(--color-cta-bg);
+            padding: 2px 10px;
+            border-radius: 1rem;
+            & > span {
+              font-size: 12px;
+              font-weight: 500;
+            }
+          }
+          & :hover {
+            transform: scale(1.02);
+            transition-duration: 500ms;
+          }
+        }
+      }
+    }
+    & #OnlineSales,
+    #DailySales {
+      & > .sale_wrapper {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.1),
+          -1px 0px 10px rgba(0, 0, 0, 0.1);
+
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-bottom: 1.5rem;
+        & > .physical_sale,
+        & > .digital_sale {
+          & > p {
+            font-size: 12px;
+            color: var(--color-light-gray);
+            font-weight: 500;
+          }
+          & > div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-top: 5px;
+            & > span {
+              font-size: 20px;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      & > .graph {
+        box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.1),
+          -1px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+    }
+  }
+  & .footer {
+    margin-top: 1.5rem;
+    & span {
+      color: var(--color-footer-text);
+      font-weight: 700;
+    }
+    & p {
+      font-size: 13px;
+      color: var(--color-light-gray);
+    }
+  }
+}
